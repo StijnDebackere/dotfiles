@@ -14,4 +14,6 @@ ipython:
 
 matplotlib:
 	mkdir -p $(HOME)/.matplotlib/stylelib/
+	mkdir -p $(HOME)/.config/matplotlib/stylelib/
 	ln -vsf $(BASE)/matplotlib/stylelib/paper.mplstyle $(HOME)/.matplotlib/stylelib/paper.mplstyle
+	ln -vsf $(BASE)/matplotlib/stylelib/paper.mplstyle $(HOME)/.config/matplotlib/stylelib/paper.mplstyle
