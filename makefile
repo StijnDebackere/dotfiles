@@ -19,6 +19,8 @@ matplotlib:
 	ln -vsf $(BASE)/matplotlib/stylelib/paper.mplstyle $(HOME)/.config/matplotlib/stylelib/paper.mplstyle
 
 zsh:
+	git submodule init
+	git submodule update
 	ln -vsf $(BASE)/zsh/.zshrc $(HOME)/.zshrc
 
-all: tmux inputrc ipython matplotlib
+all: tmux inputrc ipython matplotlib zsh
