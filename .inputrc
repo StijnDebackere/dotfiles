@@ -1,0 +1,29 @@
+# SFINX .inputrc file
+#
+# (C) 1996 Expertise Centrum Astronomische Beeldverwerking
+# Written by David Jansen (jansen@strw.leidenuniv.nl)
+# as part of the Sfinx system
+#
+# This file contains settings and key bindings for programs that make use
+# of the GNU readline library (libreadline.a)
+# (e.g. gdb, ncftp (line mode), ...)
+
+set editing-mode                emacs           # (emacs, vi)
+set bell-style                  audible         # (audible, visible)
+set expand-tilde                on              # (off, on)
+set show-all-if-ambiguous       on              # (off, on)
+set completion-ignore-case      on
+
+# Now for some key bindings
+#
+#DEL:           delete-char             # Delete
+#"^?"h:         backward-delete-char    # Backspace
+"\e[A":         history-search-backward # up
+"\e[B":         history-search-forward  # down
+"\e[C":         forward-char            # right
+"\e[D":         backward-char           # left
+"\C-p":         history-search-backward # ctrl-p
+"\C-n":         history-search-forward  # ctrl-n
+#"\e[5~":       history-search-backward # page up
+#"\e[6~":       history-search-forward  # page down
+#"\C-x\C-h":    dump-functions          # always handy to get current bindings
