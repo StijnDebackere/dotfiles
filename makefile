@@ -11,3 +11,7 @@ ipython:
 	ln -vsf $(BASE)/ipython/profile_stijn3/startup/00-autoload.py $(HOME)/.ipython/profile_default/startup/00-autoload.py
 	ln -vsf $(BASE)/ipython/profile_stijn3/startup/01-magics.py $(HOME)/.ipython/profile_default/startup/01-magics.py
 	ln -vsf $(BASE)/ipython/profile_stijn3/ipython_config.py $(HOME)/.ipython/profile_default/ipython_config.py
+
+matplotlib:
+	mkdir -p $(HOME)/.matplotlib/stylelib/
+	ln -vsf $(BASE)/matplotlib/stylelib/paper.mplstyle $(HOME)/.matplotlib/stylelib/paper.mplstyle

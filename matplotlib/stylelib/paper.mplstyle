@@ -1,0 +1,134 @@
+#### My paper format
+
+## See http://matplotlib.org/users/customizing.html#the-matplotlibrc-file for
+##
+## This file is best viewed in a editor which supports python mode
+## syntax highlighting. Blank lines, or lines starting with a comment
+## symbol, are ignored, as are trailing comments.  Other lines must
+## have the format
+##     key : val ## optional comment
+
+#### FONT
+
+## font properties used by text.Text.  See
+## http://matplotlib.org/api/font_manager_api.html for more
+## information on font properties.  The 6 font properties used for font
+## matching are given below with their default values.
+
+font.family         : serif
+font.weight         : normal
+font.size           : 30.0
+font.serif          : Times New Roman
+
+#### TEXT
+## text properties used by text.Text.  See
+## http://matplotlib.org/api/artist_api.html#module-matplotlib.text for more
+## information on text properties
+
+#### LaTeX customizations. See http://wiki.scipy.org/Cookbook/Matplotlib/UsingTex
+text.usetex         : False   ## use latex for all text handling. The following fonts
+                              ## are supported through the usual rc parameter settings:
+                              ## new century schoolbook, bookman, times, palatino,
+                              ## zapf chancery, charter, serif, sans-serif, helvetica,
+                              ## avant garde, courier, monospace, computer modern roman,
+                              ## computer modern sans serif, computer modern typewriter
+                              ## If another font is desired which can loaded using the
+                              ## LaTeX \usepackage command, please inquire at the
+                              ## matplotlib mailing list
+
+## The following settings allow you to select the fonts in math mode.
+## They map from a TeX font name to a fontconfig font pattern.
+## These settings are only used if mathtext.fontset is 'custom'.
+## Note that this "custom" mode is unsupported and may go away in the
+## future.
+mathtext.rm  : Times New Roman
+mathtext.tt  : t1xtt
+mathtext.it  : Times New Roman:italic
+mathtext.bf  : Times New Roman:bold
+mathtext.fontset : custom ## Should be 'dejavusans' (default),
+                          ## 'dejavuserif', 'cm' (Computer Modern), 'stix',
+                          ## 'stixsans' or 'custom'
+mathtext.fallback : cm  ## When True, use symbols from the Computer Modern
+                                ## fonts when a symbol can not be found in one of
+                                ## the custom math fonts.
+
+#### AXES
+## default face and edge color, default tick sizes,
+## default fontsizes for ticklabels, and so on.  See
+## http://matplotlib.org/api/axes_api.html#module-matplotlib.axes
+
+axes.titlesize      : 30   ## fontsize of the axes title
+axes.labelsize      : 30   ## fontsize of the x any y labels
+axes.labelpad       : 10     ## space between label and axis
+axes.labelweight    : normal ## weight of the x and y labels
+
+#### TICKS
+## see http://matplotlib.org/api/axis_api.html#matplotlib.axis.Tick
+
+xtick.top            : True   ## draw ticks on the top side
+xtick.bottom         : True   ## draw ticks on the bottom side
+xtick.labeltop       : False  ## draw label on the top
+xtick.labelbottom    : True   ## draw label on the bottom
+xtick.major.size     : 6      ## major tick size in points
+xtick.minor.size     : 4      ## minor tick size in points
+xtick.major.pad      : 10    ## distance to major tick label in points
+xtick.minor.pad      : 3.4    ## distance to the minor tick label in points
+xtick.color          : black  ## color of the tick labels
+xtick.labelcolor     : black  ## color of the tick labels
+xtick.labelsize      : 30     ## fontsize of the tick labels
+xtick.direction      : in     ## direction: in, out, or inout
+xtick.minor.visible  : True   ## visibility of minor ticks on x-axis
+xtick.major.top      : True   ## draw x axis top major ticks
+xtick.major.bottom   : True   ## draw x axis bottom major ticks
+xtick.minor.top      : True   ## draw x axis top minor ticks
+xtick.minor.bottom   : True   ## draw x axis bottom minor ticks
+xtick.alignment      : center ## alignment of xticks
+
+ytick.left           : True   ## draw ticks on the left side
+ytick.right          : True   ## draw ticks on the right side
+ytick.labelleft      : True   ## draw tick labels on the left side
+ytick.labelright     : False  ## draw tick labels on the right side
+ytick.major.size     : 6      ## major tick size in points
+ytick.minor.size     : 4      ## minor tick size in points
+ytick.major.pad      : 3.5    ## distance to major tick label in points
+ytick.minor.pad      : 3.4    ## distance to the minor tick label in points
+ytick.color          : black  ## color of the tick labels
+ytick.labelcolor     : black  ## color of the tick labels
+ytick.labelsize      : 30     ## fontsize of the tick labels
+ytick.direction      : in     ## direction: in, out, or inout
+ytick.minor.visible  : True   ## visibility of minor ticks on y-axis
+ytick.major.left     : True   ## draw y axis left major ticks
+ytick.major.right    : True   ## draw y axis right major ticks
+ytick.minor.left     : True   ## draw y axis left minor ticks
+ytick.minor.right    : True   ## draw y axis right minor ticks
+ytick.alignment      : center_baseline ## alignment of yticks
+
+#### Legend
+
+legend.loc           : best
+legend.frameon       : False    ## if True, draw the legend on a background patch
+legend.numpoints     : 1        ## the number of marker points in the legend line
+legend.scatterpoints : 1        ## number of scatter points
+legend.fontsize      : 30
+legend.title_fontsize    : None ## None sets to the same as the default axes.  
+
+#### FIGURE
+## See http://matplotlib.org/api/figure_api.html#matplotlib.figure.Figure
+figure.titlesize : 34          ## size of the figure title (Figure.suptitle())
+figure.figsize   : 10, 9       ## figure size in inches
+
+#### IMAGES
+image.aspect : equal             ## equal | auto | a number
+image.interpolation  : none      ## see help(imshow) for options
+image.cmap   : magma             ## A colormap name, gray etc...
+image.origin : lower             ## lower | upper
+
+#### ERRORBAR PLOTS
+errorbar.capsize : 0              ## length of end cap on error bars in pixels
+
+#### SAVING FIGURES
+## the default savefig params can be different from the display params
+## e.g., you may want a higher resolution, or to make the figure
+## background white
+savefig.transparent : True    ## setting that controls whether figures are saved with a
+                              ## transparent background by default
