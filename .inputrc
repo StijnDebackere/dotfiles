@@ -9,7 +9,7 @@
 # (e.g. gdb, ncftp (line mode), ...)
 
 set editing-mode                emacs           # (emacs, vi)
-set bell-style                  audible         # (audible, visible)
+# set bell-style                  audible         # (audible, visible)
 set expand-tilde                on              # (off, on)
 set show-all-if-ambiguous       on              # (off, on)
 set completion-ignore-case      on
