@@ -49,7 +49,7 @@ c.InteractiveShellApp.extensions = ['h5py.ipy_completer']
 #c.InteractiveShellApp.hide_initial_ns = True
 
 # Configure matplotlib for interactive use with the default matplotlib backend.
-c.InteractiveShellApp.matplotlib = "inline"
+# c.InteractiveShellApp.matplotlib = "inline"
 
 ## Run the module as a script.
 #c.InteractiveShellApp.module_to_run = ''
