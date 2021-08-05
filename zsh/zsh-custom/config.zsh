@@ -22,8 +22,8 @@ export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
 
-# # set up gpg-agent, no need to check if instance is already running
-# eval $(gpg-agent --daemon --quiet)
+# set up gpg-agent, no need to check if instance is already running
+eval $(gpg-agent --daemon --quiet)
 
-# # Set GPG tty
-# export GPG_TTY=$(tty)
+# Set GPG tty
+export GPG_TTY=$(tty)
