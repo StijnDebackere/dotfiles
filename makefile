@@ -7,10 +7,10 @@ inputrc:
 	ln -vsf $(BASE)/.inputrc $(HOME)/.inputrc
 
 ipython:
-	mkdir -p $(HOME)/.ipython/profile_default/startup/
-	ln -vsf $(BASE)/ipython/profile_stijn3/startup/00-autoload.py $(HOME)/.ipython/profile_default/startup/00-autoload.py
-	ln -vsf $(BASE)/ipython/profile_stijn3/startup/01-magics.ipy $(HOME)/.ipython/profile_default/startup/01-magics.ipy
-	ln -vsf $(BASE)/ipython/profile_stijn3/ipython_config.py $(HOME)/.ipython/profile_default/ipython_config.py
+	mkdir -p $(HOME)/.ipython/profile_stijn3/startup/
+	ln -vsf $(BASE)/ipython/profile_stijn3/startup/00-autoload.py $(HOME)/.ipython/profile_stijn3/startup/00-autoload.py
+	ln -vsf $(BASE)/ipython/profile_stijn3/startup/01-magics.ipy $(HOME)/.ipython/profile_stijn3/startup/01-magics.ipy
+	ln -vsf $(BASE)/ipython/profile_stijn3/ipython_config.py $(HOME)/.ipython/profile_stijn3/ipython_config.py
 
 matplotlib:
 	mkdir -p $(HOME)/.matplotlib/stylelib/
