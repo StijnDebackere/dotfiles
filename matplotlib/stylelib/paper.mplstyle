@@ -48,9 +48,7 @@ mathtext.bf  : Times New Roman:bold
 mathtext.fontset : custom ## Should be 'dejavusans' (default),
                           ## 'dejavuserif', 'cm' (Computer Modern), 'stix',
                           ## 'stixsans' or 'custom'
-mathtext.fallback_to_cm : True  ## When True, use symbols from the Computer Modern
-                                ## fonts when a symbol can not be found in one of
-                                ## the custom math fonts.
+mathtext.fallback : cm
 
 #### AXES
 ## default face and edge color, default tick sizes,
@@ -61,6 +59,13 @@ axes.titlesize      : 30   ## fontsize of the axes title
 axes.labelsize      : 30   ## fontsize of the x any y labels
 axes.labelpad       : 10     ## space between label and axis
 axes.labelweight    : normal ## weight of the x and y labels
+axes.axisbelow      : True
+axes.edgecolor      : white
+axes.facecolor      : EAEAF2
+axes.grid           : True
+
+grid.color          : white
+grid.linewidth      : 1
 
 #### TICKS
 ## see http://matplotlib.org/api/axis_api.html#matplotlib.axis.Tick
@@ -73,9 +78,9 @@ xtick.major.size     : 6      ## major tick size in points
 xtick.minor.size     : 4      ## minor tick size in points
 xtick.major.pad      : 10    ## distance to major tick label in points
 xtick.minor.pad      : 3.4    ## distance to the minor tick label in points
-xtick.color          : black  ## color of the tick labels
+xtick.color          : 0.15   ## color of the tick labels
 xtick.labelsize      : 30     ## fontsize of the tick labels
-xtick.direction      : in     ## direction: in, out, or inout
+xtick.direction      : out    ## direction: in, out, or inout
 xtick.minor.visible  : True   ## visibility of minor ticks on x-axis
 xtick.major.top      : True   ## draw x axis top major ticks
 xtick.major.bottom   : True   ## draw x axis bottom major ticks
@@ -91,9 +96,9 @@ ytick.major.size     : 6      ## major tick size in points
 ytick.minor.size     : 4      ## minor tick size in points
 ytick.major.pad      : 3.5    ## distance to major tick label in points
 ytick.minor.pad      : 3.4    ## distance to the minor tick label in points
-ytick.color          : black  ## color of the tick labels
+ytick.color          : 0.15  ## color of the tick labels
 ytick.labelsize      : 30     ## fontsize of the tick labels
-ytick.direction      : in     ## direction: in, out, or inout
+ytick.direction      : out    ## direction: in, out, or inout
 ytick.minor.visible  : True   ## visibility of minor ticks on y-axis
 ytick.major.left     : True   ## draw y axis left major ticks
 ytick.major.right    : True   ## draw y axis right major ticks
