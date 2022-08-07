@@ -26,4 +26,10 @@ zsh:
 	ln -vsf $(BASE)/zsh/ohmyzsh/themes $(HOME)/.oh-my-zsh
 	ln -vsf $(BASE)/zsh/ohmyzsh/plugins $(HOME)/.oh-my-zsh
 
-all: tmux inputrc ipython matplotlib zsh
+hammerspoon:
+	mkdir -p $(HOME)/.hammerspoon
+	ln -vsf $(BASE)/hammerspoon/caffeine-off.pdf $(HOME)/.hammerspoon/caffeine-off.pdf
+	ln -vsf $(BASE)/hammerspoon/caffeine-on.pdf $(HOME)/.hammerspoon/caffeine-on.pdf
+	ln -vsf $(BASE)/hammerspoon/init.lua $(HOME)/.hammerspoon/init.lua
+
+all: tmux inputrc ipython matplotlib zsh hammerspoon
