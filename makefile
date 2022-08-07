@@ -21,6 +21,9 @@ matplotlib:
 zsh:
 	git submodule init
 	git submodule update
+	mkdir -p $(HOME)/.oh-my-zsh
 	ln -vsf $(BASE)/zsh/.zshrc $(HOME)/.zshrc
+	ln -vsf $(BASE)/zsh/ohmyzsh/themes $(HOME)/.oh-my-zsh
+	ln -vsf $(BASE)/zsh/ohmyzsh/plugins $(HOME)/.oh-my-zsh
 
 all: tmux inputrc ipython matplotlib zsh

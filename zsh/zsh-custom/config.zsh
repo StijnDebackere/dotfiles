@@ -5,6 +5,8 @@ export PATH="/usr/local/opt/ruby/bin:$PATH"
 export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
+export PATH="/usr/local/opt/ed/bin:$PATH"
+export PATH="/usr/local/opt/python@3.10/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/stijn/.oh-my-zsh"
@@ -23,9 +25,9 @@ autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
 
 # start gpg-agent if no socket present yet, otherwise get gpg-agent already running
-if [[ ! -a ~/.gnupg/S.gpg-agent ]]; then
-    eval $(gpg-agent --daemon --quiet)
-fi
+# if [[ ! -a ~/.gnupg/S.gpg-agent ]]; then
+#     eval $(gpg-agent --daemon --quiet)
+# fi
 
 # Set GPG tty
 export GPG_TTY=$(tty)

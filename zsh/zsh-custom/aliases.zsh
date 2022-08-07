@@ -1,3 +1,27 @@
+# function aliases
+# eval `gdircolors ~/.dir_colors-solarized`
+alias ls='gls --color=auto -F'
+alias ll='ls --color=auto -ltrahF' # list all, reverse time sorted, human readable
+alias py='python3'
+alias jlab='jupyter lab'
+alias ec='emacsclient -n -q'
+
+# ipython aliases
+# In iPython 5 you need %matplotlib magic for mpl to work correctly
+# this can be called as ipython --matplotlib
+# Rewrite as a function so we can provide arguments when calling scripts
+# Also use profile stijn, which autoloads numpy and pyplot
+ipy() {
+    ipython3 $@ --matplotlib --profile=stijn3;
+}
+pyenv() {
+    if [ ! -d "$PWD/.venv" ]
+    then
+        py -m venv .venv;
+    fi
+    source .venv/bin/activate;
+}
+
 # ssh aliases -> start up bash on server
 ss() {
     ssh -t $1 'exec bash'
@@ -29,6 +53,13 @@ choose_screen() {
         break
     done
 }
+connect_screen() {
+    if [ "$TERM" = "screen" ]; then
+       scr=$(choose_screen)
+       screen -dRU $scr
+    fi
+}
+
 choose_tmux() {
     # set the prompt used by select, replacing "#?"
     PS3="Use number to select a tmux session or 'stop' to cancel: "
@@ -53,12 +84,6 @@ choose_tmux() {
         break
     done
 }
-connect_screen() {
-    if [ "$TERM" = "screen" ]; then
-       scr=$(choose_screen)
-       screen -dRU $scr
-    fi
-}
 connect_tmux() {
     if [ -z "${TMUX}" ]; then
        scr=$(choose_tmux)
@@ -66,28 +91,6 @@ connect_tmux() {
     fi
 }
 
-# ipython aliases
-# In iPython 5 you need %matplotlib magic for mpl to work correctly
-# this can be called as ipython --matplotlib
-# Rewrite as a function so we can provide arguments when calling scripts
-# Also use profile stijn, which autoloads numpy and pyplot
-# function ipy2() {
-#     ipython2 $@ --matplotlib --profile=stijn2;
-# }
-ipy() {
-    ipython3 $@ --matplotlib --profile=stijn3;
-}
-jlab(){
-    jupyter lab
-}
-
-# # set up port forwards
-# function enable_port_forwards () {
-#     for port in $@
-#     do
-#         ssh -NfL $port:localhost:$port purmer
-#     done
-# }
 
 # find all forwarded ports and kill them
 show_port_forwards () {
@@ -99,13 +102,3 @@ kill_port_forwards () {
     # if main process is ssh, kill
     ps -axo pid,args | ag 'ssh -(\w*)(?(1)L)' | awk '{if($2 == "ssh") system("kill "$1)}'
 }
-
-# PhD variables
-export phd=~/Documents/PhD/
-export papers=~/Documents/papers/
-export projects=~/Documents/PhD/projects/
-
-# function aliases
-eval `gdircolors ~/.dir_colors-solarized`
-alias ls='gls --color=auto -F'
-alias ll='ls --color=auto -ltrahF' # list all, reverse time sorted, human readable
