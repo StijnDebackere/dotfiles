@@ -198,10 +198,7 @@ hs.hotkey.bind(hyper, "A", function() hs.application.launchOrFocus("Activity Mon
 hs.hotkey.bind({}, "f13", function() hs.application.launchOrFocus("Messages") end)
 hs.hotkey.bind(hyper, "B", function() hs.application.launchOrFocus("Bitwarden") end)
 hs.hotkey.bind(hyper, "L", function() hs.application.launchOrFocus("Zotero") end)
-hs.hotkey.bind(
-   hyper, "E",
-   function() hs.application.launchOrFocus("/usr/local/Cellar/emacs-plus@28/28.1/Emacs.app/") end
-)
+hs.hotkey.bind(hyper, "E", function() hs.application.launchOrFocus("Emacs") end)
 
 -- -- ---------
 -- -- Dark mode
