@@ -191,7 +191,7 @@ hs.hotkey.bind(hyper, "M", function() hs.application.launchOrFocus("Mail") end)
 hs.hotkey.bind(hyper, "Z", function() hs.application.launchOrFocus("zoom.us") end)
 hs.hotkey.bind(hyper, "V", function() hs.application.launchOrFocus("VLC") end)
 hs.hotkey.bind(hyper, "T", function() hs.application.launchOrFocus("Reminders") end)
-hs.hotkey.bind(hyper, "N", function() hs.application.launchOrFocus("Agenda") end)
+hs.hotkey.bind(hyper, "N", function() hs.application.launchOrFocus("Notes") end)
 hs.hotkey.bind(hyper, "A", function() hs.application.launchOrFocus("Activity Monitor") end)
 -- Remapped fn+w to f13 since it might activate WiFi logging?
 -- see https://apple.stackexchange.com/a/393558
@@ -236,7 +236,7 @@ end
 -- Monitor layouts
 local singleMonitor = {
    {"Firefox",  nil, laptopScreen, hs.layout.maximized, nil, nil},
-   {"Messages", nil, laptopScreen, hs.layout.right75, nil, nil},
+   {"Messages", nil, laptopScreen, hs.layout.right50, nil, nil},
    {"Finder", nil, laptopScreen, topLeft, nil, nil},
    {"Activity Monitor", nil, laptopScreen, bottomLeft, nil, nil},
    {"Calendar", nil, laptopScreen, hs.layout.left75, nil, nil},
@@ -246,7 +246,7 @@ local multipleMonitor = {
    -- {"Firefox", nil, otherScreen, hs.layout.maximized, nil, nil},
    {"Finder", nil, otherScreen, topLeft, nil, nil},
    {"Activity Monitor", nil, otherScreen, bottomLeft, nil, nil},
-   {"Messages", nil, laptopScreen, hs.layout.right75, nil, nil},
+   {"Messages", nil, laptopScreen, hs.layout.right50, nil, nil},
    {"Calendar", nil, laptopScreen, hs.layout.left75, nil, nil},
    {"Spotify", nil, laptopScreen, hs.layout.maximized, nil, nil},
 }
