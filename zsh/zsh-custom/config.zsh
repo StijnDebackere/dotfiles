@@ -1,16 +1,3 @@
-# If you come from bash you might have to change your $PATH.
-export PATH="/usr/local/bin:/Applications/TOPCAT.app/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/local/opt/ruby/bin:$PATH"
-export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
-export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
-export PATH="/usr/local/opt/ed/bin:$PATH"
-export PATH="/usr/local/opt/python@3.10/bin:$PATH"
-
-# Path to your oh-my-zsh installation.
-export ZSH="/Users/stijn/.oh-my-zsh"
-
 # Mac finder apps set path
 launchctl setenv PATH $PATH
 
