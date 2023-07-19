@@ -1,3 +1,5 @@
+export PATH="/usr/local/bin/:$PATH"
+
 # Mac finder apps set path
 launchctl setenv PATH $PATH
 
