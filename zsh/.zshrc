@@ -93,3 +93,10 @@ export LANG=en_US.UTF-8
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+# https://stackoverflow.com/q/57660263/76304995#76304995
+function conda_deactivate_all() {
+    while [ -n "$CONDA_PREFIX" ]; do
+        conda deactivate;
+    done
+}
+[[ -z $TMUX ]] || conda_deactivate_all; conda activate base
