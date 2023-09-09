@@ -100,3 +100,5 @@ function conda_deactivate_all() {
     done
 }
 [[ -z $TMUX ]] || conda_deactivate_all; conda activate base
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

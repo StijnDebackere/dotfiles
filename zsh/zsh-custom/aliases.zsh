@@ -4,7 +4,9 @@ alias ls='gls --color=auto -F'
 alias ll='ls --color=auto -ltrahF' # list all, reverse time sorted, human readable
 alias py='python3'
 alias jlab='jupyter lab'
-alias ec='emacsclient -n -q'
+alias ec="emacsclient -n -q"
+alias ecf="emacsclient -n -q \$(find . '/' | fzf)"
+alias sd="cd ~ && cd \$(find * -type d | fzf)"
 
 # ipython aliases
 # In iPython 5 you need %matplotlib magic for mpl to work correctly

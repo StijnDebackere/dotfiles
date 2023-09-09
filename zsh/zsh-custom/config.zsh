@@ -1,4 +1,4 @@
-export PATH="/usr/local/bin/:$PATH"
+export PATH="/usr/local/bin/:/usr/local/go/bin/:$HOME/go/bin/:$PATH"
 
 # Mac finder apps set path
 launchctl setenv PATH $PATH
