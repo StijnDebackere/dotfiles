@@ -8,6 +8,35 @@ alias ec="emacsclient -n -q"
 alias ecf="emacsclient -n -q \$(find . '/' | fzf)"
 alias sd="cd ~ && cd \$(find * -type d | fzf)"
 
+choose_gh_user() {
+    # set the prompt used by select, replacing "#?"
+    PS3="Use number to select a user or 'stop' to cancel: "
+
+    # allow the user to choose a file
+    select usr in $(ls ~/.logins/gh-*.txt)
+    do
+        # leave the loop if the user says 'stop'
+        if [[ "$REPLY" == stop ]]; then break; fi
+
+        # complain if no file was selected, and loop to ask again
+        if [[ "$usr" == "" ]]
+        then
+            echo "'$REPLY' is not a valid number"
+            continue
+        fi
+
+        # now we can use the selected file
+        echo "$usr"
+
+        # it'll ask for another unless we leave the loop
+        break
+    done
+}
+gh_login() {
+    usr=$(choose_gh_user);
+    gh auth login --with-token < $usr
+}
+
 # ipython aliases
 # In iPython 5 you need %matplotlib magic for mpl to work correctly
 # this can be called as ipython --matplotlib
