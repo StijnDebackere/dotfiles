@@ -8,7 +8,7 @@ alias ec="emacsclient -n -q"
 alias ecf="emacsclient -n -q \$(find . '/' | fzf)"
 alias sd="cd ~ && cd \$(find * -type d | fzf)"
 
-choose_gh_user() {
+_choose_gh_user() {
     # set the prompt used by select, replacing "#?"
     PS3="Use number to select a user or 'stop' to cancel: "
 
@@ -33,7 +33,7 @@ choose_gh_user() {
     done
 }
 gh_login() {
-    usr=$(choose_gh_user);
+    usr=$(_choose_gh_user);
     gh auth login --with-token < $usr
 }
 
