@@ -6,6 +6,7 @@ ifeq (, $(shell which brew))
   brew install coreutils
   brew tap d12frosted/emacs-plus
   brew install emacs-plus@30
+  brew install gh
 endif
 
 tmux:
