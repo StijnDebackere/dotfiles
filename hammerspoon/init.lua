@@ -187,13 +187,12 @@ hs.hotkey.bind(pushkey, "f", function() push(0,0,1,1) end)
 -- hyper modifier.
 hs.hotkey.bind(hyper, "S", function() hs.application.launchOrFocus("Firefox") end)
 hs.hotkey.bind(hyper, "C", function() hs.application.launchOrFocus("Calendar") end)
-hs.hotkey.bind(hyper, "I", function() hs.application.launchOrFocus("iTunes") end)
 hs.hotkey.bind(hyper, "K", function() hs.application.launchOrFocus("Spotify") end)
-hs.hotkey.bind(hyper, "P", function() hs.application.launchOrFocus("Skim") end)
+hs.hotkey.bind(hyper, "P", function() hs.application.launchOrFocus("Preview") end)
 hs.hotkey.bind(hyper, "F", function() hs.application.launchOrFocus("Finder") end)
 hs.hotkey.bind(hyper, "M", function() hs.application.launchOrFocus("Mail") end)
-hs.hotkey.bind(hyper, "Z", function() hs.application.launchOrFocus("zoom.us") end)
-hs.hotkey.bind(hyper, "V", function() hs.application.launchOrFocus("VLC") end)
+-- hs.hotkey.bind(hyper, "Z", function() hs.application.launchOrFocus("zoom.us") end)
+-- hs.hotkey.bind(hyper, "V", function() hs.application.launchOrFocus("VLC") end)
 hs.hotkey.bind(hyper, "T", function() hs.application.launchOrFocus("Reminders") end)
 hs.hotkey.bind(hyper, "N", function() hs.application.launchOrFocus("Notes") end)
 hs.hotkey.bind(hyper, "A", function() hs.application.launchOrFocus("Activity Monitor") end)
@@ -222,10 +221,10 @@ hs.hotkey.bind(hyper, "H", function() hs.hints.windowHints() end)
 -- Monitor names
 local laptopScreen = hs.screen.primaryScreen()
 
-
 -- Check for dual monitor setup
 local dual = ((#hs.screen.allScreens()) == 2)
 local single = ((#hs.screen.allScreens()) == 1)
+
 
 -- Define other monitor name
 if dual then
@@ -239,31 +238,36 @@ end
 
 -- Monitor layouts
 local singleMonitor = {
-   {"Firefox",  nil, laptopScreen, hs.layout.maximized, nil, nil},
-   {"Messages", nil, laptopScreen, hs.layout.right50, nil, nil},
    {"Finder", nil, laptopScreen, topLeft, nil, nil},
+   {"Bitwarden", nil, laptopScreen, halfRight, nil, nil},
+   {"Emacs",  nil, laptopScreen, hs.layout.maximized, nil, nil},
+   {"Firefox",  nil, laptopScreen, hs.layout.maximized, nil, nil},
    {"Activity Monitor", nil, laptopScreen, bottomLeft, nil, nil},
    {"Calendar", nil, laptopScreen, hs.layout.left75, nil, nil},
 }
 
 local multipleMonitor = {
-   -- {"Firefox", nil, otherScreen, hs.layout.maximized, nil, nil},
-   {"Finder", nil, otherScreen, topLeft, nil, nil},
+   {"Finder", nil, laptopScreen, topLeft, nil, nil},
+   {"Bitwarden", nil, laptopScreen, topRight, nil, nil},
+   {"Emacs",  nil, laptopScreen, hs.layout.maximized, nil, nil},
+   {"Firefox",  nil, laptopScreen, hs.layout.maximized, nil, nil},
    {"Activity Monitor", nil, otherScreen, bottomLeft, nil, nil},
-   {"Messages", nil, laptopScreen, hs.layout.right50, nil, nil},
-   {"Calendar", nil, laptopScreen, hs.layout.left75, nil, nil},
-   {"Spotify", nil, laptopScreen, hs.layout.maximized, nil, nil},
+   {"Calendar", nil, otherScreen, hs.layout.left75, nil, nil},
+   {"Spotify", nil, otherScreen, hs.layout.maximized, nil, nil},
 }
 
 
 function changeLayout()
-   if dual then
-      hs.layout.apply(multipleMonitor)
-      -- hs.alert("Dual screen layout loaded")
-   elseif single then
-      hs.layout.apply(singleMonitor)
-      -- hs.alert("Single screen layout loaded")
-   end
+   -- Can run into issues if applications in one of the layouts are not running
+   -- app:allWindows() will return nil and cause an error
+   -- (see https://groups.google.com/g/hammerspoon/c/MowWJud0GbE?pli=1)
+  if dual then
+     hs.layout.apply(multipleMonitor)
+     -- hs.alert("Dual screen layout loaded")
+  elseif single then
+     hs.layout.apply(singleMonitor)
+     -- hs.alert("Single screen layout loaded")
+  end
 end
 
 -- apply single or multiple monitor layouts
@@ -271,6 +275,7 @@ end
 changeLayout()
 watcher = hs.screen.watcher.new(changeLayout)
 watcher:start()
+
 
 -- ----------------
 -- config reloading
