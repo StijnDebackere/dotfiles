@@ -1,5 +1,13 @@
 BASE=$(PWD)
 
+ifeq (, $(shell which brew))
+  echo "No brew in ${PATH}, installing homebrew"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  brew install coreutils
+  brew tap d12frosted/emacs-plus
+  brew install emacs-plus@30
+endif
+
 tmux:
 	ln -vsf $(BASE)/tmux/.tmux.conf $(HOME)/.tmux.conf
 
