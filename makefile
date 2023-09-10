@@ -33,7 +33,7 @@ hammerspoon:
 	ln -vsf $(BASE)/hammerspoon/init.lua $(HOME)/.hammerspoon/init.lua
 
 karabiner:
-        mkdir -p $(HOME)/.config/karabiner
-        ln -vsf $(BASE)/karabiner/karabiner.json $(HOME)/.config/karabiner/karabiner.json
+	mkdir -p $(HOME)/.config/karabiner
+	ln -vsf $(BASE)/karabiner/karabiner.json $(HOME)/.config/karabiner/karabiner.json
 
 all: tmux inputrc ipython matplotlib zsh hammerspoon karabiner
