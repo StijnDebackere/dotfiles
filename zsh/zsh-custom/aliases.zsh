@@ -48,7 +48,12 @@ ipy() {
 pyenv() {
     if [ ! -d "$PWD/.venv" ]
     then
-        py -m venv .venv;
+        echo "Creating venv .venv"
+        py -m venv .venv
+        directory=${PWD##*/}             # to assign to a variable
+        directory=${directory:-/}        # to correct for the case where PWD=/
+        echo "Linking .venv to ${WORKON_HOME}/${directory}"
+        ln -s ${PWD}/.venv ${WORKON_HOME}/${directory}
     fi
     source .venv/bin/activate;
 }
