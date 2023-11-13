@@ -13,17 +13,6 @@ export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
 
-# use virtualenvwrapper
-if [[ -n "$CONDA_PREFIX" ]]; then
-    if [[ ! -f "$CONDA_PREFIX/bin/virtualenvwrapper.sh" ]]; then
-        echo "Installing virtualenvwrapper"
-        pip install virtualenvwrapper==6.0.0.0a1
-    fi
-    export WORKON_HOME="~/.envs"
-    mkdir -p ~/.envs
-    source "$CONDA_PREFIX/bin/virtualenvwrapper.sh"
-fi
-
 # start gpg-agent if no socket present yet, otherwise get gpg-agent already running
 if [[ ! -a ~/.gnupg/S.gpg-agent ]]; then
     eval $(gpg-agent --daemon --quiet)
