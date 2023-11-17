@@ -65,38 +65,7 @@ ss() {
 ssx() {
     ssh -tX $1 'exec bash'
 }
-choose_screen() {
-    # set the prompt used by select, replacing "#?"
-    PS3="Use number to select a screen or 'stop' to cancel: "
-
-    # allow the user to choose a file
-    select scr in $(ls /var/run/screen/S-debackere)
-    do
-        # leave the loop if the user says 'stop'
-        if [[ "$REPLY" == stop ]]; then break; fi
-
-        # complain if no file was selected, and loop to ask again
-        if [[ "$scr" == "" ]]
-        then
-            echo "'$REPLY' is not a valid number"
-            continue
-        fi
-
-        # now we can use the selected file
-        echo "$scr"
-
-        # it'll ask for another unless we leave the loop
-        break
-    done
-}
-connect_screen() {
-    if [ "$TERM" = "screen" ]; then
-       scr=$(choose_screen)
-       screen -dRU $scr
-    fi
-}
-
-choose_tmux() {
+_choose_tmux() {
     # set the prompt used by select, replacing "#?"
     PS3="Use number to select a tmux session or 'stop' to cancel: "
 
@@ -122,12 +91,10 @@ choose_tmux() {
 }
 connect_tmux() {
     if [ -z "${TMUX}" ]; then
-       scr=$(choose_tmux)
+       scr=$(_choose_tmux)
        tmux new -As $scr
     fi
 }
-
-
 # find all forwarded ports and kill them
 show_port_forwards () {
     # get pid and args for all ssh processes, match -L flag
