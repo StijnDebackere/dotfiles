@@ -127,9 +127,10 @@ hs.hotkey.bind(pushkey,"u", function() push(0,0,0.5,0.5) end)     -- top left
 hs.hotkey.bind(pushkey,"i", function() push(0.5,0,0.5,0.5) end)   -- top right
 hs.hotkey.bind(pushkey,"n", function() push(0,0.5,0.5,0.5) end)   -- bottom left
 hs.hotkey.bind(pushkey,"m", function() push(0.5,0.5,0.5,0.5) end) -- bottom right
-hs.hotkey.bind(pushkey,"c", function() push(0.25,0,0.5,1) end) -- bottom
-hs.hotkey.bind(nudgekey,"c", function() push(0.125,0,0.75,1) end) -- bottom
-                                                                -- right
+hs.hotkey.bind(pushkey,"c", function() push(0.25,0,0.5,1) end) -- center
+hs.hotkey.bind(pushkey,"x", function() push(0.0,0,0.25,1) end) -- left of center
+hs.hotkey.bind(pushkey,"v", function() push(0.75,0,0.25,1) end) -- right of center
+hs.hotkey.bind(nudgekey,"c", function() push(0.125,0,0.75,1) end) -- centerwide
 
 -- Push to other monitor
 hs.hotkey.bind(pushkey, 'left', function() moveWest() end)
@@ -219,7 +220,7 @@ hs.hotkey.bind(hyper, "H", function() hs.hints.windowHints() end)
 -- Monitor layouts
 -- ---------------
 -- Monitor names
-local laptopScreen = hs.screen.primaryScreen()
+local primaryScreen = hs.screen.primaryScreen()
 
 -- Check for dual monitor setup
 local dual = ((#hs.screen.allScreens()) == 2)
@@ -228,7 +229,7 @@ local single = ((#hs.screen.allScreens()) == 1)
 
 -- Define other monitor name
 if dual then
-   local x = indexOff(hs.screen.allScreens(), hs.screen.find(laptopScreen))
+   local x = indexOff(hs.screen.allScreens(), hs.screen.find(primaryScreen))
    if x == 1 then
       otherScreen = hs.screen.allScreens()[2]
    else
@@ -295,6 +296,11 @@ hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig):start()
 hs.alert.show("Config loaded")
 
 hs.hotkey.bind(hyper, "R", function() hs.reload() end)
+
+-- function showFrontMostApplication()
+--    hs.alert.show(hs.application.frontmostApplication())
+-- end
+-- hs.hotkey.bind(hyper, "X", function() showFrontMostApplication() end)
 
 -- ------------
 -- Caffeine.app
