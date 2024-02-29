@@ -54,8 +54,10 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
-# https://stackoverflow.com/q/57660263/76304995#76304995
+# --------------------------------------------------------------------------------
+# TMUX has issues with getting the right conda env,
+# automatically deactive all envs and active base when in TMUX
+# ~> https://stackoverflow.com/q/57660263/76304995#76304995
 function conda_deactivate_all() {
     while [ -n "$CONDA_PREFIX" ]; do
         conda deactivate;
@@ -75,6 +77,3 @@ if [[ -n "$CONDA_PREFIX" ]]; then
     mkdir -p ~/.envs
     source "$CONDA_PREFIX/bin/virtualenvwrapper.sh"
 fi
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
