@@ -198,10 +198,13 @@ hs.hotkey.bind(hyper, "N", function() hs.application.launchOrFocus("Notes") end)
 hs.hotkey.bind(hyper, "A", function() hs.application.launchOrFocus("Activity Monitor") end)
 -- Remapped fn+w to f13 since it might activate WiFi logging?
 -- see https://apple.stackexchange.com/a/393558
-hs.hotkey.bind({}, "f13", function() hs.application.launchOrFocus("Messages") end)
+hs.hotkey.bind({}, "f13", function() hs.application.launchOrFocus("Slack") end)
+-- hs.hotkey.bind(hyper, "W", function() hs.application.launchOrFocus("Slack") end)
+hs.hotkey.bind(hyper, "D", function() hs.application.launchOrFocus("DBeaver") end)
 hs.hotkey.bind(hyper, "B", function() hs.application.launchOrFocus("Bitwarden") end)
 hs.hotkey.bind(hyper, "L", function() hs.application.launchOrFocus("Zotero") end)
 hs.hotkey.bind(hyper, "E", function() hs.application.launchOrFocus("Emacs") end)
+hs.hotkey.bind(hyper, "V", function() hs.application.launchOrFocus("Visual Studio Code") end)
 
 -- -- ---------
 -- -- Dark mode
@@ -244,6 +247,7 @@ local singleMonitor = {
    {"Firefox",  nil, laptopScreen, hs.layout.maximized, nil, nil},
    {"Activity Monitor", nil, laptopScreen, bottomLeft, nil, nil},
    {"Calendar", nil, laptopScreen, hs.layout.left75, nil, nil},
+   {"Slack", nil, laptopScreen, hs.layout.maximized, nil, nil},
 }
 
 local multipleMonitor = {
@@ -254,8 +258,8 @@ local multipleMonitor = {
    {"Activity Monitor", nil, otherScreen, bottomLeft, nil, nil},
    {"Calendar", nil, otherScreen, hs.layout.left75, nil, nil},
    {"Spotify", nil, otherScreen, hs.layout.maximized, nil, nil},
+   {"Slack", nil, otherScreen, hs.layout.maximized, nil, nil},
 }
-
 
 function changeLayout()
    -- Can run into issues if applications in one of the layouts are not running
