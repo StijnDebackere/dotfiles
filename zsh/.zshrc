@@ -63,7 +63,8 @@ ZSH_CUSTOM=$HOME/dotfiles/zsh/zsh-custom
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rsync)
+plugins=(git rsync poetry conda-zsh-completion)
+# https://python-poetry.org/docs/main/#oh-my-zsh
 
 source $ZSH/oh-my-zsh.sh
 

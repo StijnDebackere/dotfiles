@@ -7,6 +7,8 @@ alias jlab='jupyter lab'
 alias ec="emacsclient -n -q"
 alias ecf="emacsclient -n -q \$(find . '/' | fzf)"
 alias sd="cd ~ && cd \$(find * -type d | fzf)"
+# see https://stackoverflow.com/a/62512174
+alias activate_poetry="source \"\$(poetry env list --full-path | grep Activated | cut -d' ' -f1 )/bin/activate\""
 
 _choose_gh_user() {
     # set the prompt used by select, replacing "#?"
