@@ -33,10 +33,6 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 FZF_CTRL_T_COMMAND= source <(fzf --zsh)
 eval "$(zoxide init --cmd cd zsh)"
 
-# use fuzzy finder for history search
-# TODO: move CTRL-T cmd to other shortcut, want to keep CTRL-T for swapping chars
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # use cdr, see https://jlk.fjfi.cvut.cz/arch/manpages/man/zshcontrib.1#REMEMBERING_RECENT_DIRECTORIES
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs

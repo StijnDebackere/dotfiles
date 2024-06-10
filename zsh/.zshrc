@@ -20,12 +20,12 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
+zinit light conda-incubator/conda-zsh-completion
 
 # Add in snippets for oh-my-zsh plugins
 zinit snippet OMZP::git
 zinit snippet OMZP::aws
 zinit snippet OMZP::command-not-found
-
 # Load completions
 autoload -Uz compinit && compinit
 
