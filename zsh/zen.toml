@@ -20,7 +20,7 @@ console_title_template = '{{ .Folder }}'
     type = 'path'
     style = 'plain'
     background = 'transparent'
-    foreground = 'lightGreen'
+    foreground = 'cyan'
     template = '{{ .Path }}'
 
     [blocks.segments.properties]
@@ -75,7 +75,7 @@ console_title_template = '{{ .Folder }}'
     style = 'plain'
     foreground_templates = [
       "{{if gt .Code 0}}red{{end}}",
-      "{{if eq .Code 0}}cyan{{end}}",
+      "{{if eq .Code 0}}lightGreen{{end}}",
     ]
     background = 'transparent'
     template = '➜ '
@@ -83,7 +83,7 @@ console_title_template = '{{ .Folder }}'
 [transient_prompt]
   foreground_templates = [
     "{{if gt .Code 0}}red{{end}}",
-    "{{if eq .Code 0}}cyan{{end}}",
+    "{{if eq .Code 0}}lightGreen{{end}}",
   ]
   background = 'transparent'
   template = '➜ '
