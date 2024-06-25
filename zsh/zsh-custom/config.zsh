@@ -1,7 +1,7 @@
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-export PATH="/usr/local/bin/:/usr/local/go/bin/:$HOME/go/bin/:$PATH"
+export PATH="$HOME/.local/bin/:/usr/local/bin/:/usr/local/go/bin/:$HOME/go/bin/:$PATH"
 
 # Mac finder apps set path
 launchctl setenv PATH $PATH
@@ -28,6 +28,13 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+
+# fix word nagivation  -> https://mikebian.co/fixing-word-navigation-in-zsh/
+export WORDCHARS="?[]~=&;!#$%^(){}<>'\$''\n'"  # all of these characters are considered part of word
+
+# see https://github.com/zsh-users/zsh/blob/9a79a60/Functions/Zle/select-word-style#L77
+autoload -Uz select-word-style
+select-word-style normal  # word characters are alphanumeric and in $WORDCHARS
 
 # Shell integrations
 FZF_CTRL_T_COMMAND= source <(fzf --zsh)
