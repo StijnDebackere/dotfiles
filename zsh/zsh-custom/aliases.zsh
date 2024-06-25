@@ -8,6 +8,44 @@ alias ec="emacsclient -n -q"
 alias ecf="emacsclient -n -q \$(find . '/' | fzf)"
 alias sd="cd ~ && cd \$(find * -type d | fzf)"
 
+export AWS_PROFILE="klar_swe_data"
+export AWS_SM_INSTANCE_NAME="stijn-debackere"
+
+# https://stackoverflow.com/a/77909650
+aws_sso_login_if_invalid() {
+    if aws --profile $AWS_PROFILE sts get-caller-identity >/dev/null 2>&1; then
+    else
+        echo "Invalid session: hence logging using SSO"
+        aws sso login --profile $AWS_PROFILE
+    fi
+}
+
+sm_start() {
+    aws_sso_login_if_invalid
+    aws sagemaker start-notebook-instance --notebook-instance-name $AWS_SM_INSTANCE_NAME --profile $AWS_PROFILE
+    echo "Started SageMaker notebook instance $AWS_SM_INSTANCE_NAME"
+    sm_status
+}
+
+sm_status() {
+    aws_sso_login_if_invalid
+    aws sagemaker list-notebook-instances | jq -r '.NotebookInstances[] | select(.NotebookInstanceName==$ENV.AWS_SM_INSTANCE_NAME)'
+}
+
+sm_stop() {
+    aws_sso_login_if_invalid
+    aws sagemaker stop-notebook-instance --notebook-instance-name $AWS_SM_INSTANCE_NAME --profile $AWS_PROFILE
+    echo "Stopped SageMaker notebook instance $AWS_SM_INSTANCE_NAME"
+    sm_status
+}
+
+sm() {
+    aws_sso_login_if_invalid
+    AWS_SM_JLAB_URL=$(aws sagemaker create-presigned-notebook-instance-url --notebook-instance-name $AWS_SM_INSTANCE_NAME | \
+                          jq -r '.AuthorizedUrl | split("?authToken") | join("/lab?authToken")')
+    open -a Firefox $AWS_SM_JLAB_URL
+}
+
 _choose_gh_user() {
     # set the prompt used by select, replacing "#?"
     PS3="Use number to select a user or 'stop' to cancel: "

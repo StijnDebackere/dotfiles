@@ -59,3 +59,6 @@ export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 source $(brew --prefix)/opt/chruby/share/chruby/chruby.sh
 source $(brew --prefix)/opt/chruby/share/chruby/auto.sh
 chruby ruby-3.1.3 # run 'chruby' to see actual version
+# set AWS completion
+# https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-completion.html
+complete -C '/usr/local/bin/aws_completer' aws
