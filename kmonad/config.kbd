@@ -1,3 +1,7 @@
+;; See
+;; https://gist.github.com/amiorin/4c74f63fe599a1dcbd0933628df1aac9#file-readme-md
+;; https://sokinpui.github.io/Blog/post/kmonad-introduction/
+
 (defcfg
   input  (iokit-name)
   output (kext)
